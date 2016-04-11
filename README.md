@@ -2,7 +2,7 @@
 
 This repository contains a Web API sample built with Node.js. A Angular 2 client is used to communicate with the APIs. A lot of things in this repo are covered by a [blog series](https://manuel-rauber.com/tag/series-node-js-and-asp-net-core-1-0-usage-comparison/).
 
-This project has been forked from (Thinktecture Node.js & ASP.NET Core 1.0 Web API)[https://github.com/thinktecture/nodejs-aspnetcore-webapi] and was adopted for usage in the Hackerstolz Hackschool.
+This project has been forked from [Thinktecture Node.js & ASP.NET Core 1.0 Web API](https://github.com/thinktecture/nodejs-aspnetcore-webapi) and was adopted for usage in the Hackerstolz Hackschool.
 
 ## Projects
 
