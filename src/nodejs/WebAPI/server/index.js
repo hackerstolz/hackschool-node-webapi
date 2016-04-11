@@ -15,18 +15,11 @@ const restify = require('restify'),
 // Require the services
 const services = require('../service'),
 
-// Require configuration
-    config = require('../config'),
-
 // Require the controllers
     controllers = require('../controllers'),
 
 // Require the reference token validation service
-    referenceTokenValidation = require('./referenceTokenValidation'),
-
-// Require the database to configure it
-// use /database/{databaseType}, where databaseType [postgres, mongo]
-    database = require(`../database/${config.db.type}`);
+    referenceTokenValidation = require('./referenceTokenValidation');
 
 /**
  * Restify server exposing some APIs to manipulate customer data
@@ -69,12 +62,6 @@ function Server() {
         // Initialize all controllers
         controllers.initialize(server);
 
-        // Configure the database to use PostgreSQL or Mongodb
-        database.configure(config.db.connectionString);
-
-        // Configure services to use database as backend storage
-        services.configure(false);
-
         // Start the server on the given port and output a console message, if it started successfully
         server.listen(port, () => {
             console.log(`Server is up and running on port ${port}`);
@@ -98,7 +85,6 @@ function Server() {
             host: `localhost:${port}`,
             // Reference the files containing the swagger definitions
             apis: [
-                path.join(__dirname, '..', 'database', config.db.type, 'customerModel.js'),
                 path.join(__dirname, '..', 'controllers', 'customer.js')
             ],
             produces: ['application/json'],

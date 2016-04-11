@@ -1,25 +1,18 @@
 'use strict';
 
-const customerInMemoryService = require('./customer.inmemory'),
-    globalConfig = require('../config'),
-    customerDatabaseService = require(`./customer.${globalConfig.db.type}`);
-
-let config = {};
+const customerInMemoryService = require('./customer.inmemory');
 
 /**
  * @public
  * @constructor
  */
 function Services() {
-    this.customer = config.useInMemoryService ? customerInMemoryService : customerDatabaseService;
+    this.customer = customerInMemoryService;
 }
 
 let servicesInstance;
 
 module.exports = {
-    configure: (useInMemoryService) => {
-        config.useInMemoryService = useInMemoryService;
-    },
     get: () => {
         if (servicesInstance) {
             return Promise.resolve(servicesInstance);
