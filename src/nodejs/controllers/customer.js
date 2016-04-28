@@ -19,20 +19,6 @@ function CustomerController() {
         server.del('api/customer/:id', handleCustomerDeletion);
     };
 
-    /**
-     * @swagger
-     * path: /api/customer/list
-     * httpMethod: GET
-     * spec:
-     *  tags:
-     *      - Customer
-     *  summary: This method returns the customer list
-     *  responses:
-     *      200:
-     *          description: Successful response
-     *          schema:
-     *              '$ref': '#/definitions/CustomerModel'
-     */
     function handleCustomerList(req, res) {
         // Call list method of the customer service
         services.get()
@@ -46,18 +32,6 @@ function CustomerController() {
             );
     }
 
-    /**
-     * @swagger
-     * path: /api/customer
-     * httpMethod: POST
-     * spec:
-     *  tags:
-     *      - Customer
-     *  summary: This methods creates a new customer
-     *  responses:
-     *      200:
-     *          description: Customer created
-     */
     function handleCustomerCreation(req, res) {
         // req.body contains the json object which was transmitted
         services.get()
@@ -68,24 +42,6 @@ function CustomerController() {
             );
     }
 
-    /**
-     * @swagger
-     * path: /api/customer/{id}
-     * httpMethod: DELETE
-     * spec:
-     *  tags:
-     *      - Customer
-     *  summary: This methods removes a customer
-     *  parameters:
-     *      - name: id
-     *        in: path
-     *        description: The id of the user to remove
-     *        required: true
-     *        type: integer
-     *  responses:
-     *      200:
-     *          description: Customer removed
-     */
     function handleCustomerDeletion(req, res) {
         // req.params contains the url parameters defined in the route (:id)
         services.get()

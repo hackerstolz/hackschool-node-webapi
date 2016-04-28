@@ -1,6 +1,6 @@
 'use strict';
 
-const customerInMemoryService = require('./customer.inmemory');
+const customerInMemoryService = require('./customer.inmemory.js');
 
 /**
  * @public
