@@ -38,3 +38,9 @@ DELETE api/customer/:id
 -----------------------
 
 Removes the customer identified by :id.
+
+Additional resources
+--------------------
+
+- restify documentation: http://restify.com
+- Don't forget the CORS middleware
