@@ -1,13 +1,12 @@
 import {Injectable} from 'angular2/core';
 import {Http, Headers, Response} from 'angular2/http';
-import {SecurityService} from './securityService';
 import {Observable} from 'rxjs/Observable';
 import {CustomerModel} from '../model/customerModel';
 import {UrlService} from './urlService';
 
 @Injectable()
 export class CustomerApiService {
-    constructor(private _http: Http, private _securityService: SecurityService, private _urlService: UrlService) {
+    constructor(private _http: Http, private _urlService: UrlService) {
     }
 
     public list(): Observable<Array<CustomerModel>> {
@@ -55,7 +54,6 @@ export class CustomerApiService {
     private createHeaders(): Headers {
         const headers: Headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        headers.append('Authorization', `Bearer ${this._securityService.token}`);
         return headers;
     }
 
