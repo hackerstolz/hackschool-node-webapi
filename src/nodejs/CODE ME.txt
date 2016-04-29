@@ -1,1 +1,40 @@
-This is there place where the code needs to go.
+Code me! 
+========
+
+This is the place where the code needs to go.
+
+The following routes need to be implemented. All routes must return a HTTP Status Code 200 when successful, otherwise 500.
+
+GET api/customer/list
+-----------------
+
+Returns a JSON object with a list of customers like this:
+
+[
+	{
+		"id": 1,
+		"firstName": "Max",
+		"lastName": "Mustermann"
+	},
+	{
+		"id": 2,
+		"firstName": "John",
+		"lastName": "Doe"
+	}
+]
+
+
+POST api/customer
+-----------------
+
+Creates a new customer. The frontend will submit a JSON object in the request body containing the following object:
+
+{
+	"firstName": "Maria",
+	"lastName": "Musterfrau"
+}
+
+DELETE api/customer/:id
+-----------------------
+
+Removes the customer identified by :id.
